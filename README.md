@@ -1,4 +1,4 @@
-# n8n-nodes-minio
+# @winth03/n8n-nodes-minio
 
 This is an n8n community node. It lets you use MinIO in your n8n workflows.
 
@@ -20,7 +20,7 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 Or install it manually:
 
 ```bash
-npm install n8n-nodes-minio
+npm install @winth03/n8n-nodes-minio
 ```
 
 ## Operations

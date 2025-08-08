@@ -1,5 +1,5 @@
 {
-  "name": "n8n-nodes-minio",
+  "name": "@winth03/n8n-nodes-minio",
   "version": "1.0.0",
   "description": "n8n MinIO Node",
   "keywords": [
