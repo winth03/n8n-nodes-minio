@@ -9,15 +9,18 @@ export const resourceProperty: INodeProperties = {
 		{
 			name: 'Bucket',
 			value: 'bucket',
+			description: 'Operations on storage buckets',
 		},
 		{
 			name: 'Object',
 			value: 'object',
+			description: 'Operations on objects stored in buckets',
 		},
 		{
 			name: 'Presigned',
 			value: 'presigned',
-		}
+			description: 'Generate presigned URLs for temporary access',
+		},
 	],
 	default: 'bucket',
 };

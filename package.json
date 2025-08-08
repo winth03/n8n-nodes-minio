@@ -1,7 +1,7 @@
 {
   "name": "@winth03/n8n-nodes-minio",
   "version": "1.0.0",
-  "description": "n8n MinIO Node",
+  "description": "n8n node wrapper for the official MinIO JavaScript SDK",
   "keywords": [
     "n8n-community-node-package"
   ],

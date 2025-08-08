@@ -35,21 +35,21 @@ npm install @winth03/n8n-nodes-minio
 The MinIO node supports the following operations:
 
 ### Bucket Operations
-- **List** - List all buckets
-- **Make** - Create a new bucket
-- **Remove** - Delete a bucket
-- **Exists** - Check if a bucket exists
+- **List** - List all buckets owned by the authenticated user
+- **Make** - Create a new bucket with the specified name
+- **Remove** - Remove an empty bucket
+- **Exists** - Check if a bucket exists and is accessible
 
 ### Object Operations
 - **List** - List all objects in a bucket
-- **Get** - Download an object from a bucket
-- **Put** - Upload an object to a bucket
-- **Remove** - Delete an object from a bucket
-- **Exists** - Check if an object exists
+- **Get** - Download an object from a bucket as binary data
+- **Put** - Upload an object to a bucket from binary data
+- **Remove** - Remove an object from a bucket
+- **Exists** - Check if an object exists in the specified bucket
 
 ### Presigned URL Operations
-- **Get** - Generate a presigned URL for downloading an object
-- **Put** - Generate a presigned URL for uploading an object
+- **Get** - Generate a presigned URL for downloading an object (7-day expiry)
+- **Put** - Generate a presigned URL for uploading an object (7-day expiry)
 
 ## Credentials
 
@@ -96,24 +96,25 @@ This node uses the official MinIO JavaScript SDK and is compatible with:
 5. Execute to get a list of all buckets
 
 #### Uploading a File
-1. Use an input node to provide file data
+1. Use an input node to provide binary file data
 2. Add the MinIO node
 3. Select **Object** as the resource
 4. Select **Put** as the operation
 5. Specify the bucket name and object name
-6. Configure the field name containing your file data
+6. Configure the field name containing your binary data
 
 #### Downloading a File
 1. Add the MinIO node
 2. Select **Object** as the resource
 3. Select **Get** as the operation
 4. Specify the bucket name and object name
-5. The file content will be available in the specified field
+5. The file content will be available as binary data in the specified field
 
 ### Tips
 - Use the **Exists** operations to check if buckets or objects exist before performing other operations
 - Presigned URLs are useful for providing temporary access to objects without exposing credentials
-- The **List** operations support filtering and pagination through MinIO's native features
+- All object operations work with binary data - ensure your input data is properly formatted
+- The node uses the official MinIO JavaScript SDK for reliable S3-compatible operations
 
 ## Resources
 

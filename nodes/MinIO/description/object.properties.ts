@@ -17,26 +17,31 @@ export const objectOperations: INodeProperties = {
 			name: 'Exists',
 			value: 'exists',
 			action: 'Check if an object exists',
+			description: 'Checks if an object exists in the specified bucket',
 		},
 		{
 			name: 'Get',
 			value: 'get',
-			action: 'Get an object',
+			action: 'Download an object',
+			description: 'Downloads an object from the bucket and returns it as binary data',
 		},
 		{
 			name: 'List',
 			value: 'list',
-			action: 'List all objects in a bucket',
+			action: 'List objects in a bucket',
+			description: 'Lists all objects in a bucket',
 		},
 		{
 			name: 'Put',
 			value: 'put',
-			action: 'Uploads an object',
+			action: 'Upload an object',
+			description: 'Uploads an object to the bucket from binary data',
 		},
 		{
 			name: 'Remove',
 			value: 'remove',
 			action: 'Remove an object',
+			description: 'Removes an object from the bucket',
 		}
 	],
 	default: 'list',
@@ -46,6 +51,7 @@ export const bucketNameForObject: INodeProperties = {
 	displayName: 'Bucket Name',
 	name: 'bucketName',
 	type: 'string',
+	description: 'Name of the bucket containing the object',
 	displayOptions: {
 		show: {
 			resource: [
@@ -61,6 +67,7 @@ export const objectNameForObject: INodeProperties = {
 	displayName: 'Object Name',
 	name: 'objectName',
 	type: 'string',
+	description: 'Name of the object (key) in the bucket',
 	displayOptions: {
 		show: {
 			resource: [
@@ -81,6 +88,7 @@ export const fieldName: INodeProperties = {
 	displayName: 'Field Name',
 	name: 'fieldName',
 	type: 'string',
+	description: 'Name of the binary field to use for object data',
 	displayOptions: {
 		show: {
 			resource: [

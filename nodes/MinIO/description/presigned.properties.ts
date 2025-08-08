@@ -16,12 +16,14 @@ export const presignedOperations: INodeProperties = {
 		{
 			name: 'Get',
 			value: 'get',
-			action: 'Generates a presigned URL for HTTP GET operations',
+			action: 'Generate presigned URL for download',
+			description: 'Generates a presigned URL for downloading an object (default expiry: 7 days)',
 		},
 		{
 			name: 'Put',
 			value: 'put',
-			action: 'Generates a presigned URL for HTTP PUT operations',
+			action: 'Generate presigned URL for upload',
+			description: 'Generates a presigned URL for uploading an object (default expiry: 7 days)',
 		},
 	],
 	default: 'get',
@@ -31,6 +33,7 @@ export const bucketNameForPresigned: INodeProperties = {
 	displayName: 'Bucket Name',
 	name: 'bucketName',
 	type: 'string',
+	description: 'Name of the bucket for which to generate the presigned URL',
 	displayOptions: {
 		show: {
 			resource: [
@@ -46,6 +49,7 @@ export const objectNameForPresigned: INodeProperties = {
 	displayName: 'Object Name',
 	name: 'objectName',
 	type: 'string',
+	description: 'Name of the object (key) for which to generate the presigned URL',
 	displayOptions: {
 		show: {
 			resource: [

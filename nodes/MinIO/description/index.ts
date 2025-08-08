@@ -17,4 +17,4 @@ export const properties: INodeProperties[] = [
 	fieldName,
 ];
 
-export { nodeDescription } from './description';
+export { nodeDescription } from './node.description';
