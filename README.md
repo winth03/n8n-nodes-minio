@@ -1,5 +1,12 @@
 # @winth03/n8n-nodes-minio
 
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/winth03/n8n-nodes-minio/npm-publish.yml)](https://github.com/winth03/n8n-nodes-minio/actions)
+[![NPM Version](https://img.shields.io/npm/v/%40winth03%2Fn8n-nodes-minio)](https://www.npmjs.com/package/@winth03/n8n-nodes-minio)
+[![NPM Downloads](https://img.shields.io/npm/dm/%40winth03%2Fn8n-nodes-minio)](https://www.npmjs.com/package/@winth03/n8n-nodes-minio)
+[![NPM License](https://img.shields.io/npm/l/%40winth03%2Fn8n-nodes-minio)](https://github.com/winth03/n8n-nodes-minio/blob/master/LICENSE.md)
+[![NPM Last Update](https://img.shields.io/npm/last-update/%40winth03%2Fn8n-nodes-minio)](https://www.npmjs.com/package/@winth03/n8n-nodes-minio)
+[![MinIO Dependency](https://img.shields.io/npm/dependency-version/%40winth03%2Fn8n-nodes-minio/minio)](https://www.npmjs.com/package/@winth03/n8n-nodes-minio)
+
 This is an n8n community node. It lets you use MinIO in your n8n workflows.
 
 [MinIO](https://github.com/minio/minio) is a high-performance, S3-compatible object storage system designed for large scale AI/ML, data lake and database workloads.
