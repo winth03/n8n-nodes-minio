@@ -1,48 +1,116 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# n8n-nodes-minio
 
-# n8n-nodes-starter
+This is an n8n community node. It lets you use MinIO in your n8n workflows.
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](https://n8n.io). It includes the node linter and other dependencies.
+[MinIO](https://github.com/minio/minio) is a high-performance, S3-compatible object storage system designed for large scale AI/ML, data lake and database workloads.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-If you would like your node to be available on n8n cloud you can also [submit your node for verification](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/).
+[Installation](#installation)  
+[Operations](#operations)  
+[Credentials](#credentials)  
+[Compatibility](#compatibility)  
+[Usage](#usage)  
+[Resources](#resources)  
 
-## Prerequisites
+## Installation
 
-You need the following installed on your development machine:
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
 
-* [git](https://git-scm.com/downloads)
-* Node.js and npm. Minimum version Node 20. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  npm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+Or install it manually:
 
-## Using this starter
+```bash
+npm install n8n-nodes-minio
+```
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+## Operations
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm run lint` to check for errors or `npm run lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+The MinIO node supports the following operations:
 
-## More information
+### Bucket Operations
+- **List** - List all buckets
+- **Make** - Create a new bucket
+- **Remove** - Delete a bucket
+- **Exists** - Check if a bucket exists
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+### Object Operations
+- **List** - List all objects in a bucket
+- **Get** - Download an object from a bucket
+- **Put** - Upload an object to a bucket
+- **Remove** - Delete an object from a bucket
+- **Exists** - Check if an object exists
 
-## License
+### Presigned URL Operations
+- **Get** - Generate a presigned URL for downloading an object
+- **Put** - Generate a presigned URL for uploading an object
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+## Credentials
+
+To use this node, you need to set up MinIO API credentials with the following information:
+
+### Prerequisites
+- Access to a MinIO server (self-hosted or cloud service)
+- Valid access key and secret key with appropriate permissions
+
+### Required Credential Fields
+- **Endpoint** - The MinIO server endpoint (e.g., `localhost` or `play.min.io`)
+- **Port** - The port number (typically `9000` for MinIO)
+- **Use SSL** - Whether to use HTTPS/SSL connection
+- **Access Key** - Your MinIO access key
+- **Secret Key** - Your MinIO secret key
+
+### Setting Up Credentials
+1. In n8n, go to **Credentials** and click **Add Credential**
+2. Search for "MinIO API" and select it
+3. Fill in your MinIO server details
+4. Test the connection to ensure it works
+5. Save the credential
+
+## Compatibility
+
+- **Minimum n8n version**: 0.174.0
+- **Node.js version**: >= 20.15.0
+- **Tested with n8n versions**: 1.0.0+
+
+This node uses the official MinIO JavaScript SDK and is compatible with:
+- MinIO servers (any version)
+- Amazon S3 (due to S3 compatibility)
+- Any S3-compatible storage service
+
+## Usage
+
+### Basic Workflow Examples
+
+#### Listing Buckets
+1. Add the MinIO node to your workflow
+2. Select **Bucket** as the resource
+3. Select **List** as the operation
+4. Configure your MinIO credentials
+5. Execute to get a list of all buckets
+
+#### Uploading a File
+1. Use an input node to provide file data
+2. Add the MinIO node
+3. Select **Object** as the resource
+4. Select **Put** as the operation
+5. Specify the bucket name and object name
+6. Configure the field name containing your file data
+
+#### Downloading a File
+1. Add the MinIO node
+2. Select **Object** as the resource
+3. Select **Get** as the operation
+4. Specify the bucket name and object name
+5. The file content will be available in the specified field
+
+### Tips
+- Use the **Exists** operations to check if buckets or objects exist before performing other operations
+- Presigned URLs are useful for providing temporary access to objects without exposing credentials
+- The **List** operations support filtering and pagination through MinIO's native features
+
+## Resources
+
+* [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
+* [MinIO Documentation](https://min.io/docs/)
+* [MinIO JavaScript SDK](https://github.com/minio/minio-js/blob/master/docs/API.md)
+* [GitHub Repository](https://github.com/winth03/n8n-nodes-minio)
