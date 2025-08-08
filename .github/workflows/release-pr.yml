@@ -1,8 +1,9 @@
 # Source: https://github.com/OliverMKing/javascript-release-workflow
+
 name: "Create release PR"
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       release:
         required: true

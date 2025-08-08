@@ -1,4 +1,5 @@
 # Source: https://github.com/OliverMKing/javascript-release-workflow
+
 name: "Tag and create release draft"
 
 on:
