@@ -1,6 +1,6 @@
 {
   "name": "@winth03/n8n-nodes-minio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "n8n node wrapper for the official MinIO JavaScript SDK",
   "keywords": [
     "n8n-community-node-package"
@@ -46,6 +46,8 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@types/node": "^24.2.1",
     "@typescript-eslint/parser": "~8.32.0",
     "eslint": "^8.57.0",

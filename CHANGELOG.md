@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/winth03/n8n-nodes-minio/compare/v1.0.0...v1.0.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* **put object:** fix put object functionality and general code cleanups ([27c8687](https://github.com/winth03/n8n-nodes-minio/commit/27c8687c1b499d290f4e6a304bc333194e342d62))
+
 # 1.0.0 (2025-08-08)
 
 
