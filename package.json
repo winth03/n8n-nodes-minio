@@ -1,19 +1,19 @@
 {
-  "name": "n8n-nodes-<...>",
-  "version": "0.1.0",
-  "description": "",
+  "name": "n8n-nodes-minio",
+  "version": "1.0.0",
+  "description": "n8n MinIO Node",
   "keywords": [
     "n8n-community-node-package"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/winth03",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Nutpapop Yasawut",
+    "email": "nutpapop.win@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/winth03/n8n-nodes-minio.git"
   },
   "engines": {
     "node": ">=20.15"
@@ -33,15 +33,14 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
+      "dist/credentials/MinIoApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/MinIO/MinIo.node.js"
     ]
   },
   "devDependencies": {
+    "@types/node": "^24.2.1",
     "@typescript-eslint/parser": "~8.32.0",
     "eslint": "^8.57.0",
     "eslint-plugin-n8n-nodes-base": "^1.16.3",
@@ -51,5 +50,8 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "minio": "^8.0.5"
   }
 }
