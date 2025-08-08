@@ -1,0 +1,1 @@
+{"version":3,"file":"MinIo.node.js","sourceRoot":"","sources":["../../../nodes/MinIO/MinIo.node.ts"],"names":[],"mappings":";;;AACA,6DAAwD;AACxD,mEAAsD;AACtD,+CAA4D;AAE5D,MAAa,KAAK;IAAlB;QACC,gBAAW,GAAyB;YACnC,GAAG,6BAAe;YAClB,UAAU,EAAV,wBAAU;SACc,CAAC;QAC1B,YAAO,GAAG,2BAAO,CAAC;QAClB,YAAO,GAAG;YACT,cAAc,EAAE;gBACf,YAAY,EAAZ,6BAAY;aACZ;SACD,CAAC;IACH,CAAC;CAAA;AAXD,sBAWC"}
