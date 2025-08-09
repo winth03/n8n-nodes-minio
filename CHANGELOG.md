@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/winth03/n8n-nodes-minio/compare/v1.1.0...v1.1.1) (2025-08-09)
+
+
+### Bug Fixes
+
+* **credentials:** update documentation URL for MinIO API ([dac030f](https://github.com/winth03/n8n-nodes-minio/commit/dac030f0d98a7161b0bbd4883ba4e9a853d6308f))
+
 # [1.1.0](https://github.com/winth03/n8n-nodes-minio/compare/v1.0.1...v1.1.0) (2025-08-09)
 
 
