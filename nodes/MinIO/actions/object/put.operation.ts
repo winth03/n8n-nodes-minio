@@ -34,7 +34,12 @@ export async function putObject(
 			fileContent = Buffer.from(binaryData.data, BINARY_ENCODING);
 		}
 
-		const result = await minioClient.putObject(bucketName, objectName, fileContent);
+		// Set metadata with proper content type
+		const metadata = {
+			'Content-Type': binaryData.mimeType || 'application/octet-stream',
+		};
+
+		const result = await minioClient.putObject(bucketName, objectName, fileContent, undefined, metadata);
 		uploadedData.push({
 			json: {
 				bucket: bucketName,
