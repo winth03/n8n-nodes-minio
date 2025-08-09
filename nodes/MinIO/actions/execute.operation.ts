@@ -49,9 +49,9 @@ export async function execute(this: IExecuteFunctions): Promise<INodeExecutionDa
 				case 'remove':
 					const removeResult = await operations.object.removeObject.call(this, minioClient);
 					return [removeResult];
-				case 'exists':
-					const existsResult = await operations.object.objectExists.call(this, minioClient);
-					return [existsResult];
+				case 'stat':
+					const statResult = await operations.object.objectStat.call(this, minioClient);
+					return [statResult];
 			}
 			break;
 		case 'presigned':

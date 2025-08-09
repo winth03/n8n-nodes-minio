@@ -25,11 +25,7 @@ export async function listObjects(
 	return data.reduce<INodeExecutionData[]>((acc, object) => {
 		acc.push({
 			json: {
-				id: object.name,
-				name: object.name,
-				size: object.size,
-				etag: object.etag,
-				created: object.lastModified,
+				object,
 			},
 		});
 		return acc;

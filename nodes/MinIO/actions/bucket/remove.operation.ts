@@ -12,8 +12,8 @@ export async function removeBucket(
 	return [
 		{
 			json: {
-				id: bucketName,
-				name: bucketName,
+				bucket: bucketName,
+				removed: true,
 			},
 		},
 	];

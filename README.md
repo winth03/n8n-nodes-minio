@@ -45,7 +45,7 @@ The MinIO node supports the following operations:
 - **Get** - Download an object from a bucket as binary data
 - **Put** - Upload an object to a bucket from binary data
 - **Remove** - Remove an object from a bucket
-- **Exists** - Check if an object exists in the specified bucket
+- **Stat** - Retrieves metadata about an object in the specified bucket
 
 ### Presigned URL Operations
 - **Get** - Generate a presigned URL for downloading an object (7-day expiry)
@@ -109,12 +109,6 @@ This node uses the official MinIO JavaScript SDK and is compatible with:
 3. Select **Get** as the operation
 4. Specify the bucket name and object name
 5. The file content will be available as binary data in the specified field
-
-### Tips
-- Use the **Exists** operations to check if buckets or objects exist before performing other operations
-- Presigned URLs are useful for providing temporary access to objects without exposing credentials
-- All object operations work with binary data - ensure your input data is properly formatted
-- The node uses the official MinIO JavaScript SDK for reliable S3-compatible operations
 
 ## Resources
 

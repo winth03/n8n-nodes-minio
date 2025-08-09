@@ -10,9 +10,7 @@ export async function listBuckets(
 	return buckets.reduce<INodeExecutionData[]>((acc, bucket) => {
 		acc.push({
 			json: {
-				id: bucket.name,
-				name: bucket.name,
-				created: bucket.creationDate,
+				bucket,
 			},
 		});
 		return acc;

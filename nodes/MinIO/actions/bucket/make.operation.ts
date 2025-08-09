@@ -12,8 +12,8 @@ export async function makeBucket(
 	return [
 		{
 			json: {
-				id: bucketName,
-				name: bucketName,
+				bucket: bucketName,
+				created: new Date().toISOString(),
 			},
 		},
 	];

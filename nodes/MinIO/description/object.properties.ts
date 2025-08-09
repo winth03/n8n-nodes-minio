@@ -14,12 +14,6 @@ export const objectOperations: INodeProperties = {
 	},
 	options: [
 		{
-			name: 'Exists',
-			value: 'exists',
-			action: 'Check if an object exists',
-			description: 'Checks if an object exists in the specified bucket',
-		},
-		{
 			name: 'Get',
 			value: 'get',
 			action: 'Download an object',
@@ -42,7 +36,13 @@ export const objectOperations: INodeProperties = {
 			value: 'remove',
 			action: 'Remove an object',
 			description: 'Removes an object from the bucket',
-		}
+		},
+		{
+			name: 'Stat',
+			value: 'stat',
+			action: 'Get object information',
+			description: 'Retrieves metadata about an object in the specified bucket',
+		},
 	],
 	default: 'list',
 };

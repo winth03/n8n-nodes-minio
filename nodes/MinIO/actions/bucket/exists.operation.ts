@@ -12,8 +12,7 @@ export async function bucketExists(
 	return [
 		{
 			json: {
-				id: bucketName,
-				name: bucketName,
+				bucket: bucketName,
 				exists,
 			},
 		},

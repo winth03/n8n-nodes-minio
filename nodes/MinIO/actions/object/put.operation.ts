@@ -37,6 +37,8 @@ export async function putObject(
 		const result = await minioClient.putObject(bucketName, objectName, fileContent);
 		uploadedData.push({
 			json: {
+				bucket: bucketName,
+				object: objectName,
 				...result,
 			},
 		});
