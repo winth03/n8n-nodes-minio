@@ -6,7 +6,7 @@ import {
 export class MinIoApi implements ICredentialType {
 	name = 'minIoApi';
 	displayName = 'MinIO API';
-	documentationUrl = 'https://your-docs-url';
+	documentationUrl = 'https://github.com/minio/minio-js/blob/master/docs/API.md#1-constructor';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'Endpoint',
