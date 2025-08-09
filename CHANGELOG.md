@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/winth03/n8n-nodes-minio/compare/v1.0.1...v1.1.0) (2025-08-09)
+
+
+### Bug Fixes
+
+* **object:** replace 'exists' operation with 'stat' for retrieving object metadata ([46c798c](https://github.com/winth03/n8n-nodes-minio/commit/46c798c7946895600782e35709e4c6b4c9ea6a0e))
+
+
+### Features
+
+* **operations:** enhance operations with list search functionality ([7865ed0](https://github.com/winth03/n8n-nodes-minio/commit/7865ed04cc12b48121d626164a6ead88f6282591))
+
 ## [1.0.1](https://github.com/winth03/n8n-nodes-minio/compare/v1.0.0...v1.0.1) (2025-08-08)
 
 
