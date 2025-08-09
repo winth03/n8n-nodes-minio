@@ -1,4 +1,4 @@
-import { BINARY_ENCODING, IExecuteFunctions, INodeExecutionData } from "n8n-workflow";
+import { BINARY_ENCODING, IExecuteFunctions, INodeExecutionData, INodePropertyOptions } from "n8n-workflow";
 import * as Minio from 'minio';
 import { Readable } from "stream";
 
@@ -12,8 +12,8 @@ export async function putObject(
 
 	let item: INodeExecutionData;
 	for (let i = 0; i < items.length; i++) {
-		const bucketName = this.getNodeParameter('bucketName', i) as string;
-		const objectName = this.getNodeParameter('objectName', i) as string;
+		const bucketName = (this.getNodeParameter('bucketName', i) as INodePropertyOptions).value as string;
+		const objectName = (this.getNodeParameter('objectName', i) as INodePropertyOptions).value as string;
 		const fieldName = this.getNodeParameter('fieldName', i) as string;
 		item = items[i];
 

@@ -50,8 +50,23 @@ export const objectOperations: INodeProperties = {
 export const bucketNameForObject: INodeProperties = {
 	displayName: 'Bucket Name',
 	name: 'bucketName',
-	type: 'string',
+	type: 'resourceLocator',
 	description: 'Name of the bucket containing the object',
+	modes: [
+		{
+			displayName: 'From List',
+			name: 'list',
+			type: 'list',
+			typeOptions: {
+				searchListMethod: 'listAllBuckets',
+			}
+		},
+		{
+			displayName: 'ID',
+			name: 'id',
+			type: 'string',
+		}
+	],
 	displayOptions: {
 		show: {
 			resource: [
@@ -60,14 +75,29 @@ export const bucketNameForObject: INodeProperties = {
 		},
 	},
 	required: true,
-	default: '',
+	default: { mode: 'list', value: '' },
 };
 
 export const objectNameForObject: INodeProperties = {
 	displayName: 'Object Name',
 	name: 'objectName',
-	type: 'string',
+	type: 'resourceLocator',
 	description: 'Name of the object (key) in the bucket',
+	modes: [
+		{
+			displayName: 'From List',
+			name: 'list',
+			type: 'list',
+			typeOptions: {
+				searchListMethod: 'listAllObjects',
+			}
+		},
+		{
+			displayName: 'ID',
+			name: 'id',
+			type: 'string',
+		}
+	],
 	displayOptions: {
 		show: {
 			resource: [
@@ -81,7 +111,7 @@ export const objectNameForObject: INodeProperties = {
 		},
 	},
 	required: true,
-	default: '',
+	default: { mode: 'list', value: '' },
 };
 
 export const fieldName: INodeProperties = {

@@ -1,17 +1,17 @@
 {
 	"node": "n8n-nodes-minio.minio",
-	"nodeVersion": "1.1",
-	"codexVersion": "1.0",
+	"nodeVersion": "1.2",
+	"codexVersion": "1.1",
 	"categories": ["Development", "Developer Tools"],
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": ""
+				"url": "https://github.com/minio/minio-js/blob/master/docs/API.md#1-constructor"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": ""
+				"url": "https://github.com/minio/minio-js/blob/master/docs/API.md"
 			}
 		]
 	}

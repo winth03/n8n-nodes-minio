@@ -1,7 +1,7 @@
 import { INodeType, INodeTypeDescription } from 'n8n-workflow';
-import { minIoApiTest } from './methods/credentialTest';
 import { execute } from './actions/execute.operation';
 import { nodeDescription, properties } from './description';
+import { credentialTest, listSearch } from './methods';
 
 export class MinIo implements INodeType {
 	description: INodeTypeDescription = {
@@ -10,8 +10,7 @@ export class MinIo implements INodeType {
 	} as INodeTypeDescription;
 	execute = execute;
 	methods = {
-		credentialTest: {
-			minIoApiTest
-		}
+		credentialTest,
+		listSearch
 	};
 }

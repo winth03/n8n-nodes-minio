@@ -32,8 +32,23 @@ export const presignedOperations: INodeProperties = {
 export const bucketNameForPresigned: INodeProperties = {
 	displayName: 'Bucket Name',
 	name: 'bucketName',
-	type: 'string',
+	type: 'resourceLocator',
 	description: 'Name of the bucket for which to generate the presigned URL',
+	modes: [
+		{
+			displayName: 'From List',
+			name: 'list',
+			type: 'list',
+			typeOptions: {
+				searchListMethod: 'listAllBuckets',
+			}
+		},
+		{
+			displayName: 'ID',
+			name: 'id',
+			type: 'string',
+		}
+	],
 	displayOptions: {
 		show: {
 			resource: [
@@ -42,14 +57,29 @@ export const bucketNameForPresigned: INodeProperties = {
 		},
 	},
 	required: true,
-	default: '',
+	default: { mode: 'list', value: '' },
 };
 
 export const objectNameForPresigned: INodeProperties = {
 	displayName: 'Object Name',
 	name: 'objectName',
-	type: 'string',
+	type: 'resourceLocator',
 	description: 'Name of the object (key) for which to generate the presigned URL',
+	modes: [
+		{
+			displayName: 'From List',
+			name: 'list',
+			type: 'list',
+			typeOptions: {
+				searchListMethod: 'listAllObjects',
+			}
+		},
+		{
+			displayName: 'ID',
+			name: 'id',
+			type: 'string',
+		}
+	],
 	displayOptions: {
 		show: {
 			resource: [
@@ -58,5 +88,5 @@ export const objectNameForPresigned: INodeProperties = {
 		},
 	},
 	required: true,
-	default: '',
+	default: { mode: 'list', value: '' },
 };

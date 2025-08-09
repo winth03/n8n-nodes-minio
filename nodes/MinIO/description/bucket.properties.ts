@@ -44,8 +44,23 @@ export const bucketOperations: INodeProperties = {
 export const bucketNameForBucket: INodeProperties = {
 	displayName: 'Bucket Name',
 	name: 'bucketName',
-	type: 'string',
+	type: 'resourceLocator',
 	description: 'Name of the bucket to operate on',
+	modes: [
+		{
+			displayName: 'From List',
+			name: 'list',
+			type: 'list',
+			typeOptions: {
+				searchListMethod: 'listAllBuckets',
+			}
+		},
+		{
+			displayName: 'ID',
+			name: 'id',
+			type: 'string',
+		}
+	],
 	displayOptions: {
 		show: {
 			resource: [
@@ -59,5 +74,5 @@ export const bucketNameForBucket: INodeProperties = {
 		},
 	},
 	required: true,
-	default: '',
+	default: { mode: 'list', value: '' },
 };

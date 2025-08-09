@@ -1,4 +1,4 @@
-import { IExecuteFunctions, INodeExecutionData } from "n8n-workflow";
+import { IExecuteFunctions, INodeExecutionData, INodePropertyOptions } from "n8n-workflow";
 import * as Minio from 'minio';
 import { ObjectInfo } from "minio/dist/main/internal/type";
 
@@ -6,7 +6,7 @@ export async function listObjects(
 	this: IExecuteFunctions,
 	minioClient: Minio.Client
 ): Promise<INodeExecutionData[]> {
-	const bucketName = this.getNodeParameter('bucketName', 0) as string;
+	const bucketName = (this.getNodeParameter('bucketName', 0) as INodePropertyOptions).value as string;
 	const data: ObjectInfo[] = [];
 
 	await new Promise<void>((resolve, reject) => {
