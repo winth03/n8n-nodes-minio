@@ -1,4 +1,4 @@
-import { ILoadOptionsFunctions, INodeListSearchResult, INodePropertyOptions } from "n8n-workflow";
+import { ILoadOptionsFunctions, INodeListSearchResult, INodeParameterResourceLocator, INodePropertyOptions, IResourceLocatorResult } from "n8n-workflow";
 import { MinIoCredentials } from "../helpers/interfaces";
 import * as Minio from 'minio';
 
@@ -25,7 +25,7 @@ export async function listAllBuckets(this: ILoadOptionsFunctions): Promise<INode
 
 export async function listAllObjects(this: ILoadOptionsFunctions): Promise<INodeListSearchResult> {
 	const credentials = (await this.getCredentials('minIoApi')) as MinIoCredentials;
-	const bucketName = (this.getCurrentNodeParameter('bucketName') as INodePropertyOptions).value as string;
+	const bucketName = (this.getCurrentNodeParameter('bucketName') as INodeParameterResourceLocator).value as string;
 
 	const minioClient = new Minio.Client({
 		endPoint: credentials.endpoint,
@@ -35,7 +35,7 @@ export async function listAllObjects(this: ILoadOptionsFunctions): Promise<INode
 		secretKey: credentials.secretKey,
 	});
 
-	const results: INodePropertyOptions[] = [];
+	const results: IResourceLocatorResult[] = [];
 	const stream = await minioClient.listObjects(bucketName);
 	await new Promise((resolve, reject) => {
 		stream.on('data', (obj) => {

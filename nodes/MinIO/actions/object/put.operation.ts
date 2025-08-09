@@ -1,4 +1,4 @@
-import { BINARY_ENCODING, IExecuteFunctions, INodeExecutionData, INodePropertyOptions } from "n8n-workflow";
+import { BINARY_ENCODING, IExecuteFunctions, INodeExecutionData, INodeParameterResourceLocator } from "n8n-workflow";
 import * as Minio from 'minio';
 import { Readable } from "stream";
 
@@ -12,9 +12,13 @@ export async function putObject(
 
 	let item: INodeExecutionData;
 	for (let i = 0; i < items.length; i++) {
-		const bucketName = (this.getNodeParameter('bucketName', i) as INodePropertyOptions).value as string;
-		const objectName = (this.getNodeParameter('objectName', i) as INodePropertyOptions).value as string;
+		const bucketName = (this.getNodeParameter('bucketName', i) as INodeParameterResourceLocator).value as string;
 		const fieldName = this.getNodeParameter('fieldName', i) as string;
+		// Optional Fields
+		const options = this.getNodeParameter('options', 0, {});
+		const objectName = options.objectName as string | undefined;
+		const metadata = options.metadata as string | undefined;
+
 		item = items[i];
 
 		const newItem: INodeExecutionData = {
@@ -27,6 +31,9 @@ export async function putObject(
 
 		const binaryData = this.helpers.assertBinaryData(i, fieldName);
 
+		// Use provided object name or fall back to the binary data filename
+		const finalObjectName = objectName || binaryData.fileName || 'untitled';
+
 		let fileContent: Buffer | Readable;
 		if (binaryData.id) {
 			fileContent = await this.helpers.getBinaryStream(binaryData.id);
@@ -35,15 +42,16 @@ export async function putObject(
 		}
 
 		// Set metadata with proper content type
-		const metadata = {
+		const finalMetadata = {
+			...(metadata ? JSON.parse(metadata) : {}),
 			'Content-Type': binaryData.mimeType || 'application/octet-stream',
 		};
 
-		const result = await minioClient.putObject(bucketName, objectName, fileContent, undefined, metadata);
+		const result = await minioClient.putObject(bucketName, finalObjectName, fileContent, undefined, finalMetadata);
 		uploadedData.push({
 			json: {
 				bucket: bucketName,
-				object: objectName,
+				object: finalObjectName,
 				...result,
 			},
 		});

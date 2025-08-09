@@ -24,3 +24,8 @@ export const resourceProperty: INodeProperties = {
 	],
 	default: 'bucket',
 };
+
+// Export all base properties as an array for spreading
+export const allBaseProperties: INodeProperties[] = [
+	resourceProperty,
+];

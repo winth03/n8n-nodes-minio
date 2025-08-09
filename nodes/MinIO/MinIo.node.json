@@ -1,7 +1,7 @@
 {
 	"node": "n8n-nodes-minio.minio",
-	"nodeVersion": "1.2",
-	"codexVersion": "1.1",
+	"nodeVersion": "1.3",
+	"codexVersion": "1.2",
 	"categories": ["Development", "Developer Tools"],
 	"resources": {
 		"credentialDocumentation": [

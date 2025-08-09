@@ -1,20 +1,10 @@
-import { INodeProperties } from 'n8n-workflow';
-import { resourceProperty } from './resources';
-import { bucketOperations, bucketNameForBucket } from './bucket.properties';
-import { objectOperations, bucketNameForObject, objectNameForObject, fieldName } from './object.properties';
-import { bucketNameForPresigned, objectNameForPresigned, presignedOperations } from './presigned.properties';
+import allProperties from './properties';
+import allOptions from './options';
 
-export const properties: INodeProperties[] = [
-	resourceProperty,
-	bucketOperations,
-	objectOperations,
-	presignedOperations,
-	bucketNameForBucket,
-	bucketNameForObject,
-	bucketNameForPresigned,
-	objectNameForObject,
-	objectNameForPresigned,
-	fieldName,
+export default [
+	...allProperties,
+	...allOptions,
 ];
 
+// Also export for direct access
 export { nodeDescription } from './node.description';

@@ -90,3 +90,10 @@ export const objectNameForPresigned: INodeProperties = {
 	required: true,
 	default: { mode: 'list', value: '' },
 };
+
+// Export all presigned properties as an array for spreading
+export const allPresignedProperties: INodeProperties[] = [
+	presignedOperations,
+	bucketNameForPresigned,
+	objectNameForPresigned,
+];

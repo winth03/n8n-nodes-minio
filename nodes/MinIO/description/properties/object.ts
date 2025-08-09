@@ -107,6 +107,7 @@ export const objectNameForObject: INodeProperties = {
 		hide: {
 			operation: [
 				'list',
+				'put',
 			],
 		},
 	},
@@ -133,3 +134,11 @@ export const fieldName: INodeProperties = {
 	required: true,
 	default: 'data',
 };
+
+// Export all object properties as an array for spreading
+export const allObjectProperties: INodeProperties[] = [
+	objectOperations,
+	bucketNameForObject,
+	objectNameForObject,
+	fieldName,
+];

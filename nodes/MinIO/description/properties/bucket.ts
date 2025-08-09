@@ -70,9 +70,36 @@ export const bucketNameForBucket: INodeProperties = {
 		hide: {
 			operation: [
 				'list',
+				'make',
 			],
 		},
 	},
 	required: true,
 	default: { mode: 'list', value: '' },
 };
+
+export const bucketNameForMakeBucket: INodeProperties = {
+	displayName: 'Bucket Name',
+	name: 'bucketName',
+	type: 'string',
+	description: 'Name of the bucket to create',
+	required: true,
+	default: '',
+	displayOptions: {
+		show: {
+			resource: [
+				'bucket',
+			],
+			operation: [
+				'make',
+			],
+		},
+	},
+};
+
+// Export all bucket properties as an array for spreading
+export const allBucketProperties: INodeProperties[] = [
+	bucketOperations,
+	bucketNameForBucket,
+	bucketNameForMakeBucket,
+];
