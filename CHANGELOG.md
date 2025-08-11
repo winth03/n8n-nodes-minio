@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/winth03/n8n-nodes-minio/compare/v1.1.1...v1.2.0) (2025-08-09)
+
+
+### Bug Fixes
+
+* **object:** add metadata support for content type in putObject function ([aeb99e4](https://github.com/winth03/n8n-nodes-minio/commit/aeb99e4785d1739a6a4cc561b1f33dbaf9f6436b))
+
+
+### Features
+
+* **structure:** complete modular refactoring and parameter improvements ([e7214d0](https://github.com/winth03/n8n-nodes-minio/commit/e7214d09a0ad233d5d58336b2f8937f9f5e12b02))
+
 ## [1.1.1](https://github.com/winth03/n8n-nodes-minio/compare/v1.1.0...v1.1.1) (2025-08-09)
 
 
