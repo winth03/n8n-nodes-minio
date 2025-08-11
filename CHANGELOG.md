@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/winth03/n8n-nodes-minio/compare/v1.2.0...v1.3.0) (2025-08-11)
+
+
+### Features
+
+* **credentials:** add 'allowInsecure' option and refactor MinIO client creation ([79833af](https://github.com/winth03/n8n-nodes-minio/commit/79833af2fd749fa6d38cd231eb6c59f5052d5a2a))
+
 # [1.2.0](https://github.com/winth03/n8n-nodes-minio/compare/v1.1.1...v1.2.0) (2025-08-09)
 
 
