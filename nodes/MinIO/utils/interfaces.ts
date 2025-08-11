@@ -4,4 +4,5 @@ export interface MinIoCredentials {
 	useSSL: boolean;
 	accessKey: string;
 	secretKey: string;
+	allowInsecure: boolean;
 }

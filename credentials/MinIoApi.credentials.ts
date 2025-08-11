@@ -43,6 +43,13 @@ export class MinIoApi implements ICredentialType {
 			name: 'useSSL',
 			type: 'boolean',
 			default: false,
-		}
+		},
+		{
+			displayName: 'Allow Insecure',
+			name: 'allowInsecure',
+			type: 'boolean',
+			default: false,
+			description: 'Whether to allow insecure connections (e.g. self-signed certificates)',
+		},
 	];
 }

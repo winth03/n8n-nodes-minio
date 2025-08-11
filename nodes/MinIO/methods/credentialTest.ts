@@ -1,6 +1,6 @@
 import { ICredentialsDecrypted, ICredentialTestFunctions, INodeCredentialTestResult } from "n8n-workflow";
-import { MinIoCredentials } from "../helpers/interfaces";
-import * as Minio from 'minio';
+import { MinIoCredentials } from "../utils/interfaces";
+import { createMinioClient } from "../utils/helper";
 
 export async function minIoApiTest(this: ICredentialTestFunctions, credential: ICredentialsDecrypted): Promise<INodeCredentialTestResult> {
 				const credentials = credential.data as MinIoCredentials | undefined;
@@ -13,13 +13,7 @@ export async function minIoApiTest(this: ICredentialTestFunctions, credential: I
 				}
 
 				try {
-					const minioClient = new Minio.Client({
-						endPoint: credentials.endpoint,
-						port: credentials.port,
-						useSSL: credentials.useSSL,
-						accessKey: credentials.accessKey,
-						secretKey: credentials.secretKey,
-					});
+					const minioClient = await createMinioClient(credentials);
 
 					await minioClient.listBuckets();
 				}

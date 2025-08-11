@@ -1,18 +1,11 @@
 import { IExecuteFunctions, INodeExecutionData, NodeOperationError } from "n8n-workflow";
-import { MinIoCredentials } from "../helpers/interfaces";
-import * as Minio from 'minio';
 import * as operations from './index';
+import { createMinioClient } from "../utils/helper";
+import { MinIoCredentials } from "../utils/interfaces";
 
 export async function execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]>  {
 	const credentials = (await this.getCredentials('minIoApi')) as MinIoCredentials;
-
-	const minioClient = new Minio.Client({
-		endPoint: credentials.endpoint,
-		port: credentials.port,
-		useSSL: credentials.useSSL,
-		accessKey: credentials.accessKey,
-		secretKey: credentials.secretKey,
-	});
+	const minioClient = await createMinioClient(credentials);
 
 	// Execute based on the resource and operation
 	const resource = this.getNodeParameter('resource') as string;
