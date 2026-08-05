@@ -1,5 +1,6 @@
 import { IExecuteFunctions, INodeExecutionData, INodeParameterResourceLocator } from "n8n-workflow";
 import * as Minio from 'minio';
+import { parseJsonOption } from '../../utils/helper';
 
 export async function removeObject(
 	this: IExecuteFunctions,
@@ -11,7 +12,9 @@ export async function removeObject(
 	const options = this.getNodeParameter('options', 0, {});
 	const removeOpts = options.removeOpts as string | undefined;
 
-	await minioClient.removeObject(bucketName, objectName, removeOpts ? JSON.parse(removeOpts) : {});
+	const removeOptsObj = parseJsonOption(removeOpts, 'Remove Options', this.getNode());
+
+	await minioClient.removeObject(bucketName, objectName, removeOptsObj);
 
 	return [{
 		json: {

@@ -23,7 +23,7 @@ export async function listAllObjects(this: ILoadOptionsFunctions): Promise<INode
 	const minioClient = await createMinioClient(credentials);
 
 	const results: IResourceLocatorResult[] = [];
-	const stream = await minioClient.listObjects(bucketName);
+	const stream = minioClient.listObjects(bucketName);
 	await new Promise((resolve, reject) => {
 		stream.on('data', (obj) => {
 			if (obj.name) {

@@ -1,6 +1,7 @@
 import { IExecuteFunctions, INodeExecutionData, INodeParameterResourceLocator } from "n8n-workflow";
 import * as Minio from 'minio';
 import { ObjectInfo } from "minio/dist/main/internal/type";
+import { parseJsonOption } from '../../utils/helper';
 
 export async function listObjects(
 	this: IExecuteFunctions,
@@ -13,9 +14,11 @@ export async function listObjects(
 	const recursive = options.recursive as boolean | undefined;
 	const listOptions = options.listOpts as string | undefined;
 
+	const listOpts = parseJsonOption(listOptions, 'List Options', this.getNode());
+
 	const data: ObjectInfo[] = [];
 	await new Promise<void>((resolve, reject) => {
-		const stream = minioClient.listObjects(bucketName, prefix, recursive, listOptions ? JSON.parse(listOptions) : {});
+		const stream = minioClient.listObjects(bucketName, prefix, recursive, listOpts);
 		stream.on('data', (obj) => {
 			data.push(obj);
 		});

@@ -1,5 +1,6 @@
 import { IExecuteFunctions, INodeExecutionData, INodeParameterResourceLocator } from "n8n-workflow";
 import * as Minio from 'minio';
+import { parseJsonOption } from '../../utils/helper';
 
 export async function objectStat(
 	this: IExecuteFunctions,
@@ -11,7 +12,9 @@ export async function objectStat(
 	const options = this.getNodeParameter('options', 0, {});
 	const statOpts = options.statOpts as string | undefined;
 
-	const stat = await minioClient.statObject(bucketName, objectName, statOpts ? JSON.parse(statOpts) : {});
+	const statOptsObj = parseJsonOption(statOpts, 'Stat Options', this.getNode());
+
+	const stat = await minioClient.statObject(bucketName, objectName, statOptsObj);
 
 	return [{
 		json: {

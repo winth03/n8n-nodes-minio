@@ -1,5 +1,6 @@
 import { IExecuteFunctions, INodeExecutionData } from "n8n-workflow";
 import * as Minio from 'minio';
+import { parseJsonOption } from '../../utils/helper';
 
 export async function makeBucket(
 	this: IExecuteFunctions,
@@ -11,7 +12,7 @@ export async function makeBucket(
 	const region = options.region as string | undefined;
 	const makeOpts = options.makeOpts as string | undefined;
 
-	await minioClient.makeBucket(bucketName, region, makeOpts ? JSON.parse(makeOpts) : {});
+	await minioClient.makeBucket(bucketName, region, parseJsonOption(makeOpts, 'Make Options', this.getNode()));
 
 	return [
 		{

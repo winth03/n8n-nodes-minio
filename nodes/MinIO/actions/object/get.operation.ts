@@ -1,5 +1,6 @@
 import { IExecuteFunctions, INodeExecutionData, INodeParameterResourceLocator } from "n8n-workflow";
 import * as Minio from 'minio';
+import { parseJsonOption } from '../../utils/helper';
 
 export async function getObject(
 	this: IExecuteFunctions,
@@ -12,7 +13,9 @@ export async function getObject(
 	const options = this.getNodeParameter('options', 0, {});
 	const getOpts = options.getOpts as string | undefined;
 
-	const stream = await minioClient.getObject(bucketName, objectName, getOpts ? JSON.parse(getOpts) : {});
+	const getOptsObj = parseJsonOption(getOpts, 'Get Options', this.getNode());
+
+	const stream = await minioClient.getObject(bucketName, objectName, getOptsObj);
 	const binaryData = await this.helpers.prepareBinaryData(stream);
 
 	return [{

@@ -1,6 +1,7 @@
 import { BINARY_ENCODING, IExecuteFunctions, INodeExecutionData, INodeParameterResourceLocator } from "n8n-workflow";
 import * as Minio from 'minio';
 import { Readable } from "stream";
+import { parseJsonOption } from '../../utils/helper';
 
 export async function putObject(
 	this: IExecuteFunctions,
@@ -15,7 +16,7 @@ export async function putObject(
 		const bucketName = (this.getNodeParameter('bucketName', i) as INodeParameterResourceLocator).value as string;
 		const fieldName = this.getNodeParameter('fieldName', i) as string;
 		// Optional Fields
-		const options = this.getNodeParameter('options', 0, {});
+		const options = this.getNodeParameter('options', i, {});
 		const objectName = options.objectName as string | undefined;
 		const metadata = options.metadata as string | undefined;
 
@@ -42,8 +43,9 @@ export async function putObject(
 		}
 
 		// Set metadata with proper content type
+		const parsedMetadata = parseJsonOption(metadata, 'Metadata', this.getNode());
 		const finalMetadata = {
-			...(metadata ? JSON.parse(metadata) : {}),
+			...parsedMetadata,
 			'Content-Type': binaryData.mimeType || 'application/octet-stream',
 		};
 
