@@ -1,11 +1,8 @@
-# @winth03/n8n-nodes-minio
+# @lsyer/n8n-nodes-minio
 
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/winth03/n8n-nodes-minio/npm-publish.yml)](https://github.com/winth03/n8n-nodes-minio/actions)
-[![NPM Version](https://img.shields.io/npm/v/%40winth03%2Fn8n-nodes-minio)](https://www.npmjs.com/package/@winth03/n8n-nodes-minio)
-[![NPM Downloads](https://img.shields.io/npm/dm/%40winth03%2Fn8n-nodes-minio)](https://www.npmjs.com/package/@winth03/n8n-nodes-minio)
-[![NPM License](https://img.shields.io/npm/l/%40winth03%2Fn8n-nodes-minio)](https://github.com/winth03/n8n-nodes-minio/blob/master/LICENSE.md)
-[![NPM Last Update](https://img.shields.io/npm/last-update/%40winth03%2Fn8n-nodes-minio)](https://www.npmjs.com/package/@winth03/n8n-nodes-minio)
-[![MinIO Dependency](https://img.shields.io/npm/dependency-version/%40winth03%2Fn8n-nodes-minio/minio)](https://www.npmjs.com/package/@winth03/n8n-nodes-minio)
+[![NPM Version](https://img.shields.io/npm/v/%40lsyer%2Fn8n-nodes-minio)](https://www.npmjs.com/package/@lsyer/n8n-nodes-minio)
+[![NPM License](https://img.shields.io/npm/l/%40lsyer%2Fn8n-nodes-minio)](https://github.com/lsyer/n8n-nodes-minio/blob/master/LICENSE.md)
+[![MinIO Dependency](https://img.shields.io/npm/dependency-version/%40lsyer%2Fn8n-nodes-minio/minio)](https://www.npmjs.com/package/@lsyer/n8n-nodes-minio)
 
 This is an n8n community node. It lets you use MinIO in your n8n workflows.
 
@@ -27,7 +24,7 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 Or install it manually:
 
 ```bash
-npm install @winth03/n8n-nodes-minio
+npm install @lsyer/n8n-nodes-minio
 ```
 
 ## Operations
@@ -115,4 +112,4 @@ This node uses the official MinIO JavaScript SDK and is compatible with:
 * [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
 * [MinIO Documentation](https://min.io/docs/)
 * [MinIO JavaScript SDK](https://github.com/minio/minio-js/blob/master/docs/API.md)
-* [GitHub Repository](https://github.com/winth03/n8n-nodes-minio)
+* [GitHub Repository](https://github.com/lsyer/n8n-nodes-minio)
